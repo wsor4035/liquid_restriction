@@ -19,9 +19,9 @@ local liquid_bucket_list = {
 for liquidcount = 1, #liquid_list do
 	minetest.override_item(liquid_list[liquidcount], {
 		on_place = function(itemstack, placer, pointed_thing)
-			if not minetest.check_player_privs(placer:get_player_name(), {spill = true}) then
-				minetest.chat_send_player(placer:get_player_name(), "Spill priv required to use this node")
-				return
+            if not minetest.check_player_privs(placer:get_player_name(), {spill = true}) then
+                minetest.chat_send_player(placer:get_player_name(), "Spill priv required to use this node")
+                return
             else
                 return minetest.item_place(itemstack, placer, pointed_thing)
             end

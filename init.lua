@@ -5,7 +5,7 @@ minetest.register_privilege("spill", {description = "Able to use all liquids.", 
 local liquid_list = {
     "default:water_source",
     "default:river_water_source",
-	"default:lava_source",
+    "default:lava_source",
 }
 
 --list of liquid nodes in buckets, feel free to add your own

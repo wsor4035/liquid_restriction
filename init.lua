@@ -18,7 +18,7 @@ local liquid_bucket_list = {
 --reads list, overrides nodes, adding priv check
 for liquidcount = 1, #liquid_list do
 	minetest.override_item(liquid_list[liquidcount], {
-		on_place = function(itemstack, placer, pointed_thing)
+        on_place = function(itemstack, placer, pointed_thing)
             if not minetest.check_player_privs(placer:get_player_name(), {spill = true}) then
                 minetest.chat_send_player(placer:get_player_name(), "Spill priv required to use this node")
                 return

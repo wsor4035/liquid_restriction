@@ -8,7 +8,7 @@ born out of me not being able to find a good public spill mod. mod is ment for c
 
 ## Links
 
-* [Github](not avaible yet)
+* [Github](https://github.com/wsor4035/liquid_restriction)
 * [Contentdb](not avaible yet)
 * [forums](not avaible yet)
 

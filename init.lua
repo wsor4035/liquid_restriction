@@ -23,6 +23,12 @@ for liquidcount = 1, #liquid_list do
                 minetest.chat_send_player(placer:get_player_name(), "Spill priv required to use this node")
                 return
             else
+                if (minetest.get_pointed_thing_position(pointed_thing).y > 20) then
+                    if not (minetest.check_player_privs(placer:get_player_name(), {server = true})) then
+                        minetest.chat_send_player(placer:get_player_name(), "admins can only place at this height")
+                        return
+                    end
+                end
                 return minetest.item_place(itemstack, placer, pointed_thing)
             end
         end

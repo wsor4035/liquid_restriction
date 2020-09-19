@@ -4,8 +4,11 @@ minetest.register_privilege("spill", {description = "Able to use all liquids.", 
 --list of all liquid nodes, feel free to add your own
 local liquid_list = {
     "default:water_source",
+    "default:water_flowing",
     "default:river_water_source",
+    "default:river_water_flowing",
     "default:lava_source",
+    "default:lava_flowing",
 }
 
 --list of liquid nodes in buckets, feel free to add your own
@@ -23,7 +26,7 @@ for liquidcount = 1, #liquid_list do
                 minetest.chat_send_player(placer:get_player_name(), "Spill priv required to use this node")
                 return
             else
-                if (minetest.get_pointed_thing_position(pointed_thing).y > 20) then
+                if (minetest.get_pointed_thing_position(pointed_thing).y > 30) then
                     if not (minetest.check_player_privs(placer:get_player_name(), {server = true})) then
                         minetest.chat_send_player(placer:get_player_name(), "admins can only place at this height")
                         return
@@ -31,7 +34,9 @@ for liquidcount = 1, #liquid_list do
                 end
                 return minetest.item_place(itemstack, placer, pointed_thing)
             end
-        end
+        end,
+        --prevents liquids from spreading
+        liquid_renewable = false,
 	})
 end
 

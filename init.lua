@@ -25,7 +25,7 @@ for liquidcount = 1, #liquid_list do
             else
                 return minetest.item_place(itemstack, placer, pointed_thing)
             end
-        end	
+        end
 	})
 end
 

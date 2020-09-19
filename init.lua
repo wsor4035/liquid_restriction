@@ -39,10 +39,18 @@ for liquidbucketcount = 1, #liquid_bucket_list do
             else
                 return minetest.item_place(itemstack, placer, pointed_thing)
             end
-        end
+        end,
+        --hide buckets of liquids, so people can't complain its broken
+        groups = {not_in_creative_inventory = 1}
     })
 end
 
+--hides bucket from inv
+minetest.override_item("bucket:bucket_empty", {
+    groups = {not_in_creative_inventory = 1}
+})
+
+--disables water from being used with the replacer tool, as that bypasses the spill priv
 if minetest.get_modpath("replacer") then
     replacer.blacklist[ "default:water_source"] = true;
     replacer.blacklist[ "default:water_flowing"] = true;

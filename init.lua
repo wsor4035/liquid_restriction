@@ -42,3 +42,12 @@ for liquidbucketcount = 1, #liquid_bucket_list do
         end
     })
 end
+
+if minetest.get_modpath("replacer") then
+    replacer.blacklist[ "default:water_source"] = true;
+    replacer.blacklist[ "default:water_flowing"] = true;
+    replacer.blacklist[ "default:lava_source"] = true;
+    replacer.blacklist[ "default:lava_flowing"] = true;
+    replacer.blacklist[ "default:river_water_source"] = true;
+    replacer.blacklist[ "default:river_water_flowing"] = true;
+end

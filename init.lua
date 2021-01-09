@@ -20,6 +20,7 @@ local liquid_bucket_list = {
 
 --reads list, overrides nodes, adding priv check
 for liquidcount = 1, #liquid_list do
+    if not minetest.registered_items[liquid_list[liquidcount]] then return end
     minetest.override_item(liquid_list[liquidcount], {
         on_place = function(itemstack, placer, pointed_thing)
             if not minetest.check_player_privs(placer:get_player_name(), {spill = true}) then
@@ -63,10 +64,10 @@ minetest.override_item("bucket:bucket_empty", {
 
 --disables water from being used with the replacer tool, as that bypasses the spill priv
 if minetest.get_modpath("replacer") then
-    replacer.blacklist[ "default:water_source"] = true;
-    replacer.blacklist[ "default:water_flowing"] = true;
-    replacer.blacklist[ "default:lava_source"] = true;
-    replacer.blacklist[ "default:lava_flowing"] = true;
-    replacer.blacklist[ "default:river_water_source"] = true;
-    replacer.blacklist[ "default:river_water_flowing"] = true;
+    replacer.blacklist["default:water_source"] = true;
+    replacer.blacklist["default:water_flowing"] = true;
+    replacer.blacklist["default:lava_source"] = true;
+    replacer.blacklist["default:lava_flowing"] = true;
+    replacer.blacklist["default:river_water_source"] = true;
+    replacer.blacklist["default:river_water_flowing"] = true;
 end

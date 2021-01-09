@@ -1,8 +1,12 @@
 unused_args = false
 allow_defined_top = true
+exclude_files = {".luacheckrc"}
 
 globals = {
     "minetest",
+
+    --depends
+    "replacer",
 }
 
 read_globals = {
@@ -15,7 +19,4 @@ read_globals = {
 
     -- MTG
     "default", "sfinv", "creative", "carts",
-
-    --depends
-    "replacer",
 }

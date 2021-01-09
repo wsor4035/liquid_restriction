@@ -10,6 +10,9 @@ local liquid_list = {
     "default:river_water_flowing",
     "default:lava_source",
     "default:lava_flowing",
+    --technic cans
+    "technic:lava_can",
+    "technic:water_can",
     --buckets
     "bucket:bucket_lava",
     "bucket:bucket_water",

@@ -9,7 +9,7 @@ born out of me not being able to find a good public spill mod. mod is ment for c
 ## Links
 
 * [Github](https://github.com/wsor4035/liquid_restriction)
-* [Contentdb](not avaible yet)
+* [Contentdb](https://content.minetest.net/packages/wsor4035/liquid_restriction/)
 * [forums](not avaible yet)
 
 ## Setup
@@ -19,10 +19,10 @@ download mod, make sure its named liquid_restriction
 ## FAQ
 
 __buckets don't work(place liquid) when used.__   
-just use the node form of it. use default:water_source instead of bucket:bucket_water
+please update the mod, this has since been fixed as of commit `1e33fd0`
 
 __how do I use this mod for random liquid__  
 simple, add random liquids mod to the depends.txt file,
-and the modname:node_name to to the liquid_list.
-if it has a bucket form, add its bucket:node_name to 
-liquid_bucket_list
+and the modname:node_name(source and flowing) to to the 
+liquid_list. if it has a bucket form, add its 
+bucket:node_name to liquid_list as well.

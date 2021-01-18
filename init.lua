@@ -17,7 +17,25 @@ local liquid_list = {
     "bucket:bucket_lava",
     "bucket:bucket_water",
     "bucket:bucket_river_water",
+    --bucket_wooden
+    "bucket_wooden:bucket_water",
+    "bucket_wooden:bucket_river_water",
 }
+
+--settings
+local lr_height = tonumber(minetest.settings:get("lr_height")) or 30
+local lr_renew = minetest.settings:get_bool("lr_renew", false)
+
+--function for handling priv settings
+local function priv_selection(default_priv, setting)
+    local priv = minetest.settings:get(setting)
+
+    if not minetest.registered_privileges[priv] then
+        return default_priv
+    else
+        return priv
+    end
+end
 
 --reads list, overrides nodes, adding priv check
 for liquidcount = 1, #liquid_list do
@@ -29,22 +47,25 @@ for liquidcount = 1, #liquid_list do
         --override
         minetest.override_item(liquid_list[liquidcount], {
             on_place = function(itemstack, placer, pointed_thing)
-                if not minetest.check_player_privs(placer:get_player_name(), {spill = true}) then
-                    minetest.chat_send_player(placer:get_player_name(), "Spill priv required to use this node")
+                local pname = placer:get_player_name()
+                local default_priv = priv_selection("spill", "lr_default")
+                local advanced_priv = priv_selection("server", "lr_advanced")
+
+                if not minetest.check_player_privs(pname, priv_selection(default_priv, "lr_default")) then
+                    minetest.chat_send_player(pname, default_priv .. " priv required to use this node")
                     return
                 else
-                    if (minetest.get_pointed_thing_position(pointed_thing).y > 30) then
-                        if not (minetest.check_player_privs(placer:get_player_name(), {server = true})) then
-                            minetest.chat_send_player(placer:get_player_name(), "admins can only place at this height")
+                    if (minetest.get_pointed_thing_position(pointed_thing).y > lr_height) then
+                        if not (minetest.check_player_privs(pname, priv_selection("server", "lr_advanced"))) then
+                            minetest.chat_send_player(pname, advanced_priv .. " priv requid at this height")
                             return
                         end
                     end
-                    --return minetest.item_place(itemstack, placer, pointed_thing)
                     return old_place(itemstack, placer, pointed_thing)
                 end
             end,
             --prevents liquids from spreading
-            liquid_renewable = false,
+            liquid_renewable = lr_renew,
         })
     end
 end

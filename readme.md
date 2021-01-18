@@ -14,7 +14,27 @@ born out of me not being able to find a good public spill mod. mod is ment for c
 
 ## Setup
 
-download mod, make sure its named liquid_restriction
+download mod, make sure its named liquid_restriction  
+
+**recommend settings for survival**  
+```  
+lr_default = "interact"  
+lr_advanced = "spill"  
+lr_height = 0  
+lr_renew = "true"  
+```  
+
+\-this config requires players to have the spill priv to use above 0
+
+**recommend settings for creative**  
+leave at defaults  
+
+## minetest.conf settings
+
+* lr_default (by default spill): default liquid_restriction priv  
+* lr_advanced (by default server): advanced liquid_restriction priv  
+* lr_height (by default 30): height for advanced priv use  
+* lr_renew (by default false): if liquids are renewable or not  
 
 ## FAQ
 

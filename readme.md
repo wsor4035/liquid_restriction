@@ -1,5 +1,9 @@
 # Minetest Liquid_Restriction Mod
 
+[![ContentDB](https://content.minetest.net/packages/wsor4035/liquid_restriction/shields/downloads/)](https://content.minetest.net/packages/wsor4035/liquid_restriction/)
+![Luacheck](https://github.com/wsor4035/liquid_restriction/workflows/build/badge.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 restricts players from placing liquids via the node or bucket unless they have a the spill priv  
 
 ## About

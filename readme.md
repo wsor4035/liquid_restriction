@@ -46,7 +46,6 @@ __buckets don't work(place liquid) when used.__
 please update the mod, this has since been fixed as of commit `1e33fd0`
 
 __how do I use this mod for random liquid__  
-simple, add random liquids mod to the depends.txt file,
-and the modname:node_name(source and flowing) to to the 
-liquid_list. if it has a bucket form, add its 
-bucket:node_name to liquid_list as well.
+this mod supports any liquid with the `liquid` of `flowingliquid` drawtype, 
+to disable its override please add the `liquid_blacklist` group to the node. 
+As for buckets or other on_place items, please submit a issue or PR at this time.
